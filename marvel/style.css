@@ -1,0 +1,444 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.gallery {
+    text-align: center;
+    padding: 20px;
+}
+
+.gallery img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 5px solid #1a2e5a;
+    transition: transform 0.3s;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+}
+
+h2 {
+    font-family: 'Marvel', 'Arial Black', sans-serif;
+    text-align: center;
+    font-size: 36px;
+    color: #1a2e5a;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 20px 0;
+}
+
+h4 {
+    font-family: 'Marvel', 'Arial Black', sans-serif;
+    font-size: 24px;
+    color: #e62429;
+    border-bottom: 2px solid #e62429;
+    padding-bottom: 5px;
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+}
+
+#menu {
+    width: 100%;
+    height: 60px;
+    background-color: #1a2e5a;
+    padding-top: 15px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+#menu a {
+    color: white;
+    font-family: 'Marvel', 'Arial Black', sans-serif;
+    font-size: 20px;
+    text-decoration: none;
+    font-weight: 800;
+    padding: 10px 25px;
+    margin: 0 5px;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+#menu a:hover {
+    color: #e62429;
+    background-color: rgba(255,255,255,0.1);
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.power-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.power-stats p {
+    margin: 5px 0;
+}
+
+.hero-info {
+    padding: 0 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #1a2e5a;
+    color: white;
+    margin-top: 40px;
+}
+
+@media (max-width: 600px) {
+    #menu a {
+        font-size: 16px;
+        padding: 8px 15px;
+    }
+    
+    .gallery img {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+/* Add to your existing style.css */
+
+/* Liquid Button Effect (from 1000276776.jpg) */
+.liquid-btn {
+    position: relative;
+    display: inline-block;
+    padding: 15px 30px;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 200px;
+    overflow: hidden;
+    border-radius: 40px;
+    margin: 20px 0;
+    font-family: 'Marvel', Arial, sans-serif;
+    font-size: 18px;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.liquid-btn span {
+    position: relative;
+    z-index: 1;
+}
+
+.liquid-btn .liquid {
+    position: absolute;
+    top: -80px;
+    left: 0;
+    width: 200px;
+    height: 200px;
+    background: #e62429; /* Marvel red */
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
+    transition: 0.5s;
+}
+
+.liquid-btn .liquid::after,
+.liquid-btn .liquid::before {
+    content: "";
+    width: 200%;
+    height: 200%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -75%);
+    background: #000;
+}
+
+.liquid-btn .liquid::before {
+    border-radius: 45%;
+    background: rgba(20, 20, 20, 0.5);
+    animation: animate 5s linear infinite;
+}
+
+.liquid-btn .liquid::after {
+    border-radius: 40%;
+    background: rgba(20, 20, 20, 0.5);
+    animation: animate 10s linear infinite;
+}
+
+.liquid-btn:hover .liquid {
+    top: -120px;
+}
+
+@keyframes animate {
+    0% {
+        transform: translate(-50%, -75%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -75%) rotate(360deg);
+    }
+}
+
+
+
+/* Animated Input Field (from 1000276771.jpg) */
+.input-group {
+    font-size: 1.25rem;
+    position: relative;
+    margin: 20px 0;
+    --primary: #e62429;
+}
+
+.input-group .input {
+    all: unset;
+    color: #1a2e5a;
+    padding: 1rem;
+    border: 1px solid #1a2e5a;
+    border-radius: 10px;
+    transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.input-group .input:focus {
+    border: 1px solid var(--primary);
+}
+
+.input-group .input:is(:focus, :valid) ~ .label {
+    transform: translateY(-120%) scale(0.7);
+    background-color: white;
+    padding-inline: 0.3rem;
+    color: var(--primary);
+}
+
+.input-group .label {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    color: #1a2e5a;
+    pointer-events: none;
+    transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+
+
+
+/* Dark mode variables */
+[data-theme="dark"] {
+  --bg-color: #121212;
+  --text-color: #f0f0f0;
+  --menu-bg: #0a1122;
+  --menu-text: #ddd;
+  --menu-hover: #ff4757;
+  --container-bg: #1e1e1e;
+  --container-shadow: 0 0 15px rgba(0,0,0,0.3);
+  --heading-color: #ff4757;
+  --subheading-color: #8973ff;
+  --card-bg: #2d2d2d;
+  --card-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  --cond: #8973ff; /* Toggle color in dark mode */
+}
+
+
+
+/* Update other elements to use variables */
+h2 {
+    color: var(--heading-color);
+}
+
+h4 {
+    color: var(--subheading-color);
+}
+
+#menu {
+    background-color: var(--menu-bg);
+}
+
+#menu a {
+    color: var(--menu-text);
+}
+
+#menu a:hover {
+    color: var(--menu-hover);
+}
+
+.container {
+    background-color: var(--container-bg);
+    box-shadow: var(--container-shadow);
+}
+
+/* Dark Mode Variables */
+:root {
+  --bg-color: #f0f0f0;
+  --text-color: #333;
+  --menu-bg: #1a2e5a;
+  --menu-text: white;
+  --menu-hover: #e62429;
+  --container-bg: white;
+  --container-shadow: 0 0 15px rgba(0,0,0,0.1);
+  --heading-color: #1a2e5a;
+  --subheading-color: #e62429;
+  --card-bg: #fff;
+  --card-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  --cond: #1a2e5a;
+  --toggle-size: 50px;
+}
+
+[data-theme="dark"] {
+  --bg-color: #121212;
+  --text-color: #f0f0f0;
+  --menu-bg: #0a1122;
+  --menu-text: #ddd;
+  --menu-hover: #ff4757;
+  --container-bg: #1e1e1e;
+  --container-shadow: 0 0 15px rgba(0,0,0,0.3);
+  --heading-color: #ff4757;
+  --subheading-color: #8973ff;
+  --card-bg: #2d2d2d;
+  --card-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  --cond: #8973ff;
+}
+
+/* Dark Mode Toggle Styles */
+.toggle-scene {
+  overflow: visible !important;
+  width: var(--toggle-size);
+  height: var(--toggle-size);
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.toggle-scene:hover {
+  transform: scale(1.1);
+}
+
+.toggle-scene__cond {
+  stroke: var(--cond);
+  stroke-width: 2;
+  stroke-linecap: round;
+  transition: stroke 0.3s ease;
+}
+
+.toggle-scene__dummy,
+.toggle-scene__hit {
+  transition: all 0.3s ease;
+}
+
+.toggle-scene__coro {
+  display: none;
+  stroke: var(--cond);
+  stroke-width: 2;
+  fill: none;
+}
+
+/* Card Styles - Reverse Hover Effect */
+.card-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 40px 0;
+  perspective: 1000px;
+}
+
+.card {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover {
+  transform: rotateY(180deg);
+}
+
+.card .face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+}
+
+.card .face.face1 {
+  background: var(--menu-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.card .face.face1 .content {
+  text-align: center;
+  padding: 20px;
+}
+
+.card .face.face1 .content i {
+  font-size: 80px;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.card:hover .face.face1 .content i {
+  color: var(--menu-hover);
+}
+
+.card .face.face2 {
+  background: var(--card-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  transform: rotateY(180deg);
+}
+
+.card .face.face2 .content {
+  text-align: center;
+}
+
+.card .face.face2 .content h3 {
+  color: var(--heading-color);
+  margin-bottom: 15px;
+}
+
+.card .face.face2 .content p {
+  color: var(--text-color);
+  margin-bottom: 15px;
+}
+
+.card .face.face2 .content a {
+  color: var(--subheading-color);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.card .face.face2 .content a:hover {
+  color: var(--menu-hover);
+}
+
+
